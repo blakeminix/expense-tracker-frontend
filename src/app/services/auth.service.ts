@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, deleteUser, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -29,7 +29,6 @@ export class AuthService {
       this.router.navigate(['/dashboard']);
     } catch (error) {
       console.error('Google login error: ', error);
-      // Handle errors
     }
   }
 
@@ -49,6 +48,17 @@ export class AuthService {
   async logout() {
     await signOut(this.auth);
     this.router.navigate(['/login']);
+  }
+
+  async deleteAccount() {
+    try {
+      if (this.auth.currentUser) {
+        await deleteUser(this.auth.currentUser);
+      }
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Delete account error: ', error);
+    }
   }
 
   getUser() {
