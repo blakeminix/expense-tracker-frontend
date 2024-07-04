@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -7,6 +7,31 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   constructor(private auth: Auth, private router: Router) {}
+
+  async register(email: string, password: string) {
+    try {
+      await createUserWithEmailAndPassword(this.auth, email, password);
+      this.router.navigate(['/dashboard']);
+    } catch (error) {
+      console.log('Register error: ', error);
+      if (error === 'auth/invalid-email') {
+
+      } else {
+
+      }
+    }
+  }
+
+  async loginWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(this.auth, provider);
+      this.router.navigate(['/dashboard']);
+    } catch (error) {
+      console.error('Google login error: ', error);
+      // Handle errors
+    }
+  }
 
   async login(email: string, password: string) {
     try {

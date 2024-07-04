@@ -14,9 +14,17 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
+  login() {
     this.authService.login(this.email, this.password);
+  }
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+
+  registerWithEmail() {
+    this.router.navigate(['/register']);
   }
 }

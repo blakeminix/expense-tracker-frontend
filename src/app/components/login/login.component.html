@@ -1,6 +1,6 @@
 <div class="login-container">
     <p>Login</p>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="login()">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" [(ngModel)]="email" name="email" required>
@@ -11,6 +11,10 @@
         </div>
         <button type="submit">Login</button>
     </form>
+    <br />
+    <button (click)="loginWithGoogle()">Login with Google</button>
+    <br /><br />
+    <button (click)="registerWithEmail()">Register with Email</button>
 </div>
 
 <router-outlet></router-outlet>
