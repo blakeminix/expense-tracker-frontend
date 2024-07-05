@@ -25,6 +25,10 @@ export class SettingsComponent {
     }
   }
 
+  goToSettings() {
+    this.router.navigate(['/settings']);
+  }
+
   goToDashboard() {
     this.router.navigate(['/dashboard']);
   }

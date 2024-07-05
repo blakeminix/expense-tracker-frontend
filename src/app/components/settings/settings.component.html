@@ -1,6 +1,13 @@
-<p>settings works!</p>
-<button (click)="goToDashboard()">Dashboard</button>
-<button (click)="logout()">Logout</button>
+<div class="top-bar">
+    <button class="dashboard-btn" (click)="goToDashboard()">Dashboard</button>
+    <div class="right-side">
+        <button class="settings-btn" (click)="goToSettings()">Settings</button>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="content">
 <button (click)="deleteAccount()">Delete Account</button>
+</div>
 
 <router-outlet></router-outlet>

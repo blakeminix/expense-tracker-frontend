@@ -1,0 +1,25 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  
+    .dashboard-btn {
+        margin-right: auto;
+    }
+  
+    .right-side {
+        display: flex;
+        align-items: center;
+        
+        .settings-btn {
+            margin-right: 10px;
+        }
+    }
+}
+  
+.content {
+    padding: 20px;
+}

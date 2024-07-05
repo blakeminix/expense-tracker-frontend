@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [RouterOutlet, FormsModule],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
   constructor(private authService: AuthService, private router: Router) {}
@@ -19,5 +19,9 @@ export class DashboardComponent {
 
   goToSettings() {
     this.router.navigate(['/settings']);
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 }
