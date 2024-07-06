@@ -17,6 +17,14 @@ export class DashboardComponent {
     this.authService.logout();
   }
 
+  goToAddExpense() {
+    this.router.navigate(['/add-expense']);
+  }
+
+  goToViewExpenses() {
+    this.router.navigate(['/view-expenses']);
+  }
+
   goToSettings() {
     this.router.navigate(['/settings']);
   }
