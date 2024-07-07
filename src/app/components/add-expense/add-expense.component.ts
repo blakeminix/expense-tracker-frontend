@@ -12,13 +12,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AddExpenseComponent {
   amount: number = 0;
+  note: string = '';
   category: string = '';
   date: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   addExpense() {
-    console.log('Expense added:', this.amount, this.category, this.date);
+    console.log('Expense added:', this.amount, this.note, this.category, this.date);
   }
 
   logout() {
