@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './add-expense.component.scss'
 })
 export class AddExpenseComponent {
-  amount: number = 0;
+  amount: number | string = 0;
   note: string = '';
   category: string = '';
   date: string = '';
@@ -20,10 +20,26 @@ export class AddExpenseComponent {
 
   addExpense() {
     console.log('Expense added:', this.amount, this.note, this.category, this.date);
+    this.amount = 0;
+    this.note = '';
+    this.category = '';
+    this.date = '';
   }
 
   logout() {
     this.authService.logout();
+  }
+
+  clearAmount() {
+    if (this.amount === 0) {
+      this.amount = '';
+    }
+  }
+
+  resetAmount() {
+    if (this.amount === '') {
+      this.amount = 0;
+    }
   }
 
   goToSettings() {
