@@ -64,4 +64,9 @@ export class AuthService {
   getUser() {
     return this.auth.currentUser;
   }
+
+  getCurrentUserEmail(): string | null {
+    const user = this.auth.currentUser;
+    return user ? user.email : null;
+  }
 }
