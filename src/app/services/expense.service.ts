@@ -15,10 +15,16 @@ interface Expense {
 })
 export class ExpenseService {
   private apiUrl = 'http://localhost:5000/api/expenses';
+  private viewURL = 'http://localhost:5000/api/viewExpenses';
 
   constructor(private http: HttpClient) {}
 
   addExpense(expense: Expense): Observable<Expense> {
     return this.http.post<Expense>(this.apiUrl, expense);
+  }
+
+  getUserExpenses(userEmail: string): Observable<any> {
+    console.log(userEmail);
+    return this.http.post<String>(this.viewURL, { userEmail });
   }
 }

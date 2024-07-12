@@ -1,1 +1,27 @@
-<p>view-expenses works!</p>
+<div class="top-bar">
+    <button class="dashboard-btn" (click)="goToDashboard()">Dashboard</button>
+    <div class="right-side">
+        <button class="settings-btn" (click)="goToSettings()">Settings</button>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="expenses-list">
+    <h2>Your Expenses</h2>
+    <ul>
+        <li *ngFor="let expense of expenses">
+            <div>
+                <strong>Amount:</strong> {{ expense.amount }}
+            </div>
+            <div>
+                <strong>Note:</strong> {{ expense.note }}
+            </div>
+            <div>
+                <strong>Category:</strong> {{ expense.category }}
+            </div>
+            <div>
+                <strong>Date:</strong> {{ expense.date }}
+            </div>
+        </li>
+    </ul>
+</div>
